@@ -1,0 +1,140 @@
+{
+	"var": {
+		"prefix": "var",
+		"body": [
+			"var ${1:name}:${2:type}"
+		],
+		"description": "Code snippet for var define"
+	},
+	"let": {
+		"prefix": "let",
+		"body": [
+			"let ${1:name}:${3:type} = ${2:value}"
+		],
+		"description": "Code snippet for let define"
+	},
+	"for": {
+		"prefix": "for",
+		"body": [
+			"for ${int} ${1:i} = ${2:0}; ${i} < ${3:length}; ${i}++",
+			"{",
+			"\t$4",
+			"}"
+		],
+		"description": "Code snippet for 'for' loop"
+	},
+	"while": {
+		"prefix": "while",
+		"body": [
+			"while $1",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for while loop"
+	},
+	"forin": {
+		"prefix": "forin",
+		"body": [
+			"for ${var} ${item} in ${1:collection}",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for forin statement"
+	},
+	"guard": {
+		"prefix": "guard",
+		"body": [
+			"guard $1 else",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for guard statement"
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if $1",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for if statement"
+	},
+	"else": {
+		"prefix": "else",
+		"body": [
+			"else",
+			"{",
+			"\t$1",
+			"}"
+		],
+		"description": "Code snippet for else statement"
+	},
+	"enum": {
+		"prefix": "enum",
+		"body": [
+			"enum ${1:MyEnum}",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for enum"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"class ${1:MyClass}",
+			"{",
+            "\t$2",
+			"}"
+		],
+		"description": "Code snippet for class"
+	},
+	"struct": {
+		"prefix": "struct",
+		"body": [
+			"struct ${1:MyStruct}",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for struct"
+	},
+	"switch": {
+		"prefix": "switch",
+		"body": [
+			"switch (${1:switch_on})",
+			"{",
+            "case ${2:case1}",
+            "\t$3",
+            "\tbreak",
+			"default:",
+			"\tbreak",
+			"}"
+		],
+		"description": "Code snippet for switch statement"
+	},
+	"protocol": {
+		"prefix": "protocol",
+		"body": [
+			"protocol ${1:MyProtocol}",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for protocol"
+	},
+    "extension": {
+		"prefix": "extension",
+		"body": [
+			"extension ${1:item}",
+			"{",
+			"\t$2",
+			"}"
+		],
+		"description": "Code snippet for protocol"
+	}
+}
