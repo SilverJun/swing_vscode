@@ -1,14 +1,17 @@
 {
-    "name": "swing-language",
+    "name": "swing-vscode",
     "displayName": "SWING",
     "description": "The POP Language project - SWING",
     "version": "0.0.1",
-    "publisher": "SilverJun",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+    "publisher": "SilverJun",  
+    "icon": "images/icon.png",                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     "engines": {
         "vscode": "^1.12.0"
     },
     "categories": [
-        "Languages"
+        "Languages",
+        "Debuggers",
+        "Snippets"
     ],
     "contributes": {
         "languages": [{
@@ -17,6 +20,60 @@
             "extensions": [".swing"],
             "configuration": "./language-configuration.json"
         }],
+        "breakpoints": [
+            {
+                "language": "swing"
+            }
+        ],
+        "debuggers": [
+            {
+                "type": "swing-debugger",
+                "args": [ "-debug", "true" ],
+                "program": "${env:PATH}/swing.exe",
+                "osx": {
+                    "runtime": "swing"
+                },
+                "linux": {
+                    "runtime": "swing"
+                },
+                "runtimeArgs": [
+                    "-debug",
+                    "true"
+                ],
+                "enableBreakpointsFor": {
+                    "languageIds": [
+                        "swing"
+                    ]
+                },
+			    "startSessionCommand": "extension.swing-debugger.startSession",
+                "configurationAttributes": {
+                    "launch": {
+                        "required": ["program"],
+                        "properties": {
+                            "program": {
+                                "type": "string",
+                                "description": "Absolute path to a swing project file or a swing source file.",
+                                "default": "${workspaceRoot}/MyProject.swingproj"
+                            },
+                            "stopOnEntry": {
+                                "type": "boolean",
+                                "description": "Automatically stop after launch.",
+                                "default": true
+                            }
+                        }
+                    }
+                },
+                "initialConfigurations": [
+                    {
+                        "type": "swing",
+                        "name": "swing-debugger",
+                        "request": "launch",
+                        "program": "readme.md",
+                        "stopOnEntry": true
+                    }
+                ]
+            }
+        ],
         "grammars": [{
             "language": "swing",
             "scopeName": "source.swing",
