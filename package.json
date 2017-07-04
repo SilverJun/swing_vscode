@@ -13,7 +13,14 @@
         "Debuggers",
         "Snippets"
     ],
+    //"activationEvents": [
+    //    "onCommand:attach.attachToDebugger"
+    //],
     "contributes": {
+        //"commands": [{
+        //    "command": "attach.attachToDebugger",
+        //   "title": "SWING Attach Debugger"
+        //}],
         "languages": [{
             "id": "swing",
             "aliases": ["SWING", "swing"],
@@ -27,51 +34,25 @@
         ],
         "debuggers": [
             {
-                "type": "swing-debugger",
+                "type": "swing",
                 "args": [ "-debug", "true" ],
-                "program": "${env:PATH}/swing.exe",
+                "program": "./bin/swing.exe",
+                "runtime": "node",
                 "osx": {
-                    "runtime": "swing"
+                    "runtime": "node"
                 },
                 "linux": {
-                    "runtime": "swing"
+                    "runtime": "node"
                 },
-                "runtimeArgs": [
-                    "-debug",
-                    "true"
-                ],
                 "enableBreakpointsFor": {
                     "languageIds": [
                         "swing"
                     ]
                 },
-			    "startSessionCommand": "extension.swing-debugger.startSession",
-                "configurationAttributes": {
-                    "launch": {
-                        "required": ["program"],
-                        "properties": {
-                            "program": {
-                                "type": "string",
-                                "description": "Absolute path to a swing project file or a swing source file.",
-                                "default": "${workspaceRoot}/MyProject.swingproj"
-                            },
-                            "stopOnEntry": {
-                                "type": "boolean",
-                                "description": "Automatically stop after launch.",
-                                "default": true
-                            }
-                        }
-                    }
-                },
-                "initialConfigurations": [
-                    {
-                        "type": "swing",
-                        "name": "swing-debugger",
-                        "request": "launch",
-                        "program": "readme.md",
-                        "stopOnEntry": true
-                    }
-                ]
+                "initialConfigurations": [{
+                    "type": "swing",
+					"request": "attach"
+                }]
             }
         ],
         "grammars": [{
